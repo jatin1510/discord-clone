@@ -8,6 +8,17 @@ body,
   height: 100%;
 }
 
+.css-u00n30 {
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 20px;
+  margin-left: 4px;
+  border: 1px solid hsl(215, 15%, 89%);
+  background-color: rgb(255, 255, 255);
+  padding: 0px 4px;
+  border-radius: 7px;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

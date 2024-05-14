@@ -14,6 +14,7 @@ import ServerMember from "@/components/server/server-member";
 
 interface ServerSidebarProps {
     serverId: string;
+    mobileToggle?: boolean;
 }
 
 const iconMap = {
@@ -30,7 +31,7 @@ const roleIconMap = {
     [MemberRole.ADMIN]: <ShieldAlert className="mr-2 h-4 w-4 text-rose-500" />,
 };
 
-export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
+export const ServerSidebar = async ({ serverId, mobileToggle }: ServerSidebarProps) => {
     const profile = await currentProfile();
     if (!profile) redirect("/");
 
@@ -77,7 +78,7 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
 
     return (
         <div className="flex flex-col h-full text-primary w-full dark:bg-[#2B2D31] bg-[#F2F3F5]">
-            <ServerHeader server={server} role={role} />
+            <ServerHeader mobileToggle={mobileToggle} server={server} role={role} />
             <ScrollArea className="flex-1 px-3">
                 <div className="mt-2">
                     <ServerSearch
@@ -122,14 +123,14 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
                     />
                 </div>
                 <Separator className="bg-zinc-200 dark:bg-zinc-700 rounded-md my-2" />
-                {!!textChannels?.length && (
-                    <div className="mb-2">
-                        <ServerSection
-                            sectionType="channels"
-                            channelType={ChannelType.TEXT}
-                            role={role}
-                            label="Text Channels"
-                        />
+                <div className="mb-2">
+                    <ServerSection
+                        sectionType="channels"
+                        channelType={ChannelType.TEXT}
+                        role={role}
+                        label="Text Channels"
+                    />
+                    {!!textChannels?.length && (
                         <div className="spca-y-[2px]">
                             {textChannels.map((channel) => (
                                 <ServerChannel
@@ -140,16 +141,16 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
                                 />
                             ))}
                         </div>
-                    </div>
-                )}
-                {!!audioChannels?.length && (
-                    <div className="mb-2">
-                        <ServerSection
-                            sectionType="channels"
-                            channelType="AUDIO"
-                            role={role}
-                            label="Voice Channels"
-                        />
+                    )}
+                </div>
+                <div className="mb-2">
+                    <ServerSection
+                        sectionType="channels"
+                        channelType="AUDIO"
+                        role={role}
+                        label="Voice Channels"
+                    />
+                    {!!audioChannels?.length && (
                         <div className="spca-y-[2px]">
                             {audioChannels.map((channel) => (
                                 <ServerChannel
@@ -160,16 +161,16 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
                                 />
                             ))}
                         </div>
-                    </div>
-                )}
-                {!!videoChannels?.length && (
-                    <div className="mb-2">
-                        <ServerSection
-                            sectionType="channels"
-                            channelType="VIDEO"
-                            role={role}
-                            label="Video Channels"
-                        />
+                    )}
+                </div>
+                <div className="mb-2">
+                    <ServerSection
+                        sectionType="channels"
+                        channelType="VIDEO"
+                        role={role}
+                        label="Video Channels"
+                    />
+                    {!!videoChannels?.length && (
                         <div className="spca-y-[2px]">
                             {videoChannels.map((channel) => (
                                 <ServerChannel
@@ -180,8 +181,8 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
                                 />
                             ))}
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
                 {!!members?.length && (
                     <div className="mb-2">
                         <ServerSection

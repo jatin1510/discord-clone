@@ -23,9 +23,10 @@ import { useModal } from "@/hooks/use-modal-store";
 interface ServerHeaderProps {
     server: ServerWithMembersWithProfiles;
     role?: MemberRole;
+    mobileToggle?: boolean;
 }
 
-export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
+export const ServerHeader = ({ server, role, mobileToggle }: ServerHeaderProps) => {
     const { onOpen } = useModal();
     const isAdmin = role === MemberRole.ADMIN;
     const isModerator = isAdmin || role === MemberRole.MODERATOR;
@@ -38,7 +39,7 @@ export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
                 dark:hover:bg-zinc-700/50 transition"
                 >
                     {server.name}
-                    <ChevronDown className="w-5 h-5 ml-auto" />
+                    {!mobileToggle && <ChevronDown className="w-5 h-5 ml-auto" />}
                 </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56 text-xs font-medium text-black dark:text-neutral-400 space-y-[2px]">

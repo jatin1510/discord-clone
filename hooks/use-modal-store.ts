@@ -10,15 +10,18 @@ export type ModalType =
     | "leaveServer"
     | "deleteServer"
     | "deleteChannel"
-    | "editChannel";
-// | "messageFile" | "deleteMessage" | "createPoll" | "viewVotes" | "uploadStatus" | "viewStatus";
+    | "editChannel"
+    | "messageFile"
+    | "deleteMessage";
+
+//   | "createPoll" | "viewVotes" | "uploadStatus" | "viewStatus";
 
 interface ModalData {
     server?: Server;
     channel?: Channel;
     channelType?: ChannelType;
-    // apiUrl?: string;
-    // query?: Record<string, any>;
+    apiUrl?: string;
+    query?: Record<string, any>;
     // votes?: any;
     // currIndex?: number;
     // statuses?: any;

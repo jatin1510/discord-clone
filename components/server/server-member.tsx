@@ -40,15 +40,15 @@ const ServerMember = ({ member, server }: ServerMemberProps) => {
                     "bg-zinc-700/20 dark:bg-zinc-700"
             )}
         >
-            <Avatar>
+            {/* <Avatar>
                 <AvatarFallback className="dark:bg-[#1E1F22] bg-[#E3E5E8]">
                     {extractInitials(member.profile.name)}
                 </AvatarFallback>
-            </Avatar>
-            {/* <UserAvatar
+            </Avatar> */}
+            <UserAvatar
                 src={member.profile.imageUrl}
                 className="h-8 w-8 md:h-8 md:w-8"
-            /> */}
+            />
             <p
                 className={cn(
                     "line-clamp-1 font-semibold text-sm text-zinc-500 group-hover:text-zinc-600 dark:text-zinc-400 dark:group-hover:text-zinc-300 transition",

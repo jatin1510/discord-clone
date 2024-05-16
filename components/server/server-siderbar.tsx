@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { ServerHeader } from "@/components/server/server-header";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ServerSearch from "@/components/server/server-search";
-import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
+import { Hash, Mic, ShieldAlert, ShieldCheck, UserIcon, Video } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import ServerSection from "@/components/server/server-section";
 import ServerChannel from "@/components/server/server-channel";
@@ -24,7 +24,7 @@ const iconMap = {
 };
 
 const roleIconMap = {
-    [MemberRole.GUEST]: null,
+    [MemberRole.GUEST]: <UserIcon className="mr-2 h-4 w-4" />,
     [MemberRole.MODERATOR]: (
         <ShieldCheck className="mr-2 h-4 w-4 text-indigo-500" />
     ),

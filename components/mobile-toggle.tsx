@@ -18,7 +18,7 @@ export const MobileToggle = ({ serverId }: { serverId: string }) => {
                     <NavigationSidebar />
                 </div>
                 <ServerSidebar serverId={serverId} mobileToggle={true} />
-                // have to done prop drilling for not showing ChevronDown icon while sheet is opened because close icon intersect with it
+                {/* have to done prop drilling for not showing ChevronDown icon while sheet is opened because close icon intersect with it */}
             </SheetContent>
         </Sheet>
     );
